@@ -1,5 +1,4 @@
 "use client";
-import { registerMicroApps, start } from "qiankun";
 import { useEffect, useRef } from "react";
 
 export default function MicroApp() {
