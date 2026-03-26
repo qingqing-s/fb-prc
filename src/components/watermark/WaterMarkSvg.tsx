@@ -42,15 +42,18 @@ const WaterMark = ()=>{
                 if(mutaion.type === 'childList'){
                     if(mutaion.removedNodes.length > 0){
                         for(const node of mutaion.removedNodes){
-                            if(node.id === 'water-mark-img'){
-                                appendWaterMark();
-                            }
-                            if(node.id === 'water-mark'){
-                                const container = document.createElement('div') as HTMLElement;
-                                container.id = 'water-mark';
-                                container.className = 'w-full h-full fixed top-0 left-0 overflow-hidden flex flex-wrap';
-                                document.body.appendChild(container);
-                                appendWaterMark();
+                            console.log('node', node);
+                            if(node instanceof HTMLElement){
+                                if(node.id === 'water-mark-img'){
+                                    appendWaterMark();
+                                }
+                                if(node.id === 'water-mark'){
+                                    const container = document.createElement('div') as HTMLElement;
+                                    container.id = 'water-mark';
+                                    container.className = 'w-full h-full fixed top-0 left-0 overflow-hidden flex flex-wrap';
+                                    document.body.appendChild(container);
+                                    appendWaterMark();
+                                }
                             }
                         }
                     }
