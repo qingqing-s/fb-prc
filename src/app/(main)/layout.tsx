@@ -49,7 +49,7 @@ export default function RootLayout({
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild>
                     <Link
-                      href={"/welcome"}
+                      href={"/"}
                       className="text-primary hover:bg-primary hover:text-background font-medium"
                     >
                       首页

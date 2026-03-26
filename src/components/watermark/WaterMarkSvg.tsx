@@ -38,7 +38,6 @@ const WaterMark = ()=>{
         const config = {attributes: true, childList: true, subtree:true};
         const callback = function(mutationsList:MutationRecord[]){
             for(const mutaion of mutationsList){
-                console.log('mutaion', mutaion);
                 if(mutaion.type === 'childList'){
                     if(mutaion.removedNodes.length > 0){
                         for(const node of mutaion.removedNodes){
@@ -67,7 +66,7 @@ const WaterMark = ()=>{
         observer.observe(targetNode, config);
         
     },[])
-    return <div id="water-mark" className="w-full h-full fixed top-0 left-0 overflow-hidden flex flex-wrap"></div>
+    return <div id="water-mark" className="w-full h-full fixed top-0 left-0 overflow-hidden flex flex-wrap pointer-events-none"></div>
 }
 
 export default WaterMark;
