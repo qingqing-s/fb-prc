@@ -2,18 +2,19 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import React from 'react';
+import React from "react";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import Link from "next/link";
 import MicroApp from "@/components/microapp/Microapp";
+import WaterMark from "@/components/watermark/WaterMarkSvg";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -40,16 +41,16 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="w-full h-auto px-4 py-2 text-white bg-purple-950 flex items-center justify-between">
+        <div className="w-full h-auto px-4 py-2 text-primary bg-background flex items-center justify-between shadow-md shadow-muted-foreground">
           <div>DDUP</div>
           <div className="flex-1 mx-10">
-            <NavigationMenu >
+            <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>
                   <NavigationMenuLink asChild>
                     <Link
                       href={"/welcome"}
-                      className="text-white hover:bg-white hover:text-purple-950 focus:bg-white focus:text-purple-950 data-[active=true]:bg-white/90 data-[active=true]:text-purple-950"
+                      className="text-primary hover:bg-primary hover:text-background font-medium"
                     >
                       首页
                     </Link>
@@ -58,14 +59,15 @@ export default function RootLayout({
               </NavigationMenuList>
             </NavigationMenu>
           </div>
-          
+
           <Avatar>
             <AvatarImage src="https://github.com/shadcn.png" />
             <AvatarFallback>CN</AvatarFallback>
           </Avatar>
         </div>
-        <MicroApp/>
-        <div id="root" />
+        <WaterMark/>
+        <MicroApp />
+        <div id="root" className="bg-background" />
         {children}
       </body>
     </html>
